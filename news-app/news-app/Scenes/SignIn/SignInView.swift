@@ -26,12 +26,10 @@ final class SignInView: CustomViewWithXib {
     @IBOutlet weak var signInUpButton: UIButton!
     @IBOutlet weak var orSignWithLabel: UILabel!
     @IBOutlet weak var termAndConditionLabel: UILabel!
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
+}
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+extension SignInView: CustomizeViewAfterLoadNib {
+    func customizeView() {
+        userNameTextField.label.text = localized(key: "authen_email")
     }
 }

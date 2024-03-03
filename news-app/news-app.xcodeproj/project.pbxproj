@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		229843242B92283100446FC9 /* LocalizationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229843232B92283100446FC9 /* LocalizationCenter.swift */; };
+		229843272B922A7300446FC9 /* ManageAppLanguageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229843262B922A7300446FC9 /* ManageAppLanguageService.swift */; };
 		86CF713C2B915AE900B930B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF713B2B915AE900B930B6 /* AppDelegate.swift */; };
 		86CF713E2B915AE900B930B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF713D2B915AE900B930B6 /* SceneDelegate.swift */; };
 		86CF71402B915AE900B930B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF713F2B915AE900B930B6 /* ViewController.swift */; };
@@ -58,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		229843232B92283100446FC9 /* LocalizationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationCenter.swift; sourceTree = "<group>"; };
+		229843262B922A7300446FC9 /* ManageAppLanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAppLanguageService.swift; sourceTree = "<group>"; };
 		86CF71382B915AE900B930B6 /* news-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "news-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF713B2B915AE900B930B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CF713D2B915AE900B930B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		229843252B922A4400446FC9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				229843262B922A7300446FC9 /* ManageAppLanguageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		86CF712F2B915AE900B930B6 = {
 			isa = PBXGroup;
 			children = (
@@ -144,9 +156,9 @@
 		86CF713A2B915AE900B930B6 /* news-app */ = {
 			isa = PBXGroup;
 			children = (
+				229843252B922A4400446FC9 /* Services */,
 				86CF71722B915D1100B930B6 /* Windows */,
 				86CF71702B915CC500B930B6 /* Common */,
-				86CF716F2B915CBC00B930B6 /* Services */,
 				86CF716E2B915C4300B930B6 /* Scenes */,
 				86CF713B2B915AE900B930B6 /* AppDelegate.swift */,
 				86CF713D2B915AE900B930B6 /* SceneDelegate.swift */,
@@ -183,13 +195,6 @@
 				86CF71782B915DEA00B930B6 /* MainRoot */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		86CF716F2B915CBC00B930B6 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		86CF71702B915CC500B930B6 /* Common */ = {
@@ -262,6 +267,7 @@
 			children = (
 				86CF71A72B91820D00B930B6 /* Localizable.strings */,
 				86CF71AC2B91826E00B930B6 /* Localizable.strings */,
+				229843232B92283100446FC9 /* LocalizationCenter.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 				86CF71992B91623800B930B6 /* NewsCommonTextField.swift in Sources */,
 				86CF71862B915E8800B930B6 /* AppInjector.swift in Sources */,
 				86CF71912B91608F00B930B6 /* SignInRouter.swift in Sources */,
+				229843272B922A7300446FC9 /* ManageAppLanguageService.swift in Sources */,
 				86CF71922B91608F00B930B6 /* SignInViewController.swift in Sources */,
 				86CF719D2B91667200B930B6 /* CustomViewWithXib.swift in Sources */,
 				86CF71932B91608F00B930B6 /* SignInInteractor.swift in Sources */,
@@ -422,6 +429,7 @@
 				86CF71812B915E2B00B930B6 /* MainRootRouter.swift in Sources */,
 				86CF717F2B915E2B00B930B6 /* MainRootFactorable.swift in Sources */,
 				86CF71462B915AE900B930B6 /* news_app.xcdatamodeld in Sources */,
+				229843242B92283100446FC9 /* LocalizationCenter.swift in Sources */,
 				86CF713E2B915AE900B930B6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

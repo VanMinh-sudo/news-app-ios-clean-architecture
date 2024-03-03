@@ -13,12 +13,10 @@ class NewsCommonTextField: CustomViewWithXib {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var subLabel: UILabel!
+}
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+extension NewsCommonTextField: CustomizeViewAfterLoadNib {
+    func customizeView() {
+        textField.borderStyle = .none
     }
 }

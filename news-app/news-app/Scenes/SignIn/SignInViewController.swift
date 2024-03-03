@@ -13,76 +13,76 @@
 import UIKit
 
 protocol SignInDisplayLogic where Self: UIViewController {
-  
-  func displayViewModel(_ viewModel: SignInModel.ViewModel)
+    
+    func displayViewModel(_ viewModel: SignInModel.ViewModel)
 }
 
 final class SignInViewController: UIViewController {
-  
-  typealias SignInFactory = SignInInteractorFactorable & SignInRouterFactorable
-
-  private let mainView: SignInView
-  private var interactor: SignInInteractable!
-  private var router: SignInRouting!
-  
-  required init(factory: SignInFactory, mainView: SignInView, dataSource: SignInModel.DataSource) {
-    self.mainView = mainView
     
-    super.init(nibName: nil, bundle: nil)
+    typealias SignInFactory = SignInInteractorFactorable & SignInRouterFactorable
     
-    let interactorFactory = factory as! SignInInteractorFactorable.InteractableFactory
-    interactor = factory.makeInteractor(factory: interactorFactory, viewController: self, dataSource: dataSource)
-    router = factory.makeRouter(viewController: self)
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    //interactor.doSomething(item: 22)
-  }
-  
-  override func loadView() {
-    mainView.delegate = self
-    view = mainView
-  }
-
-  @available(*, unavailable)
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented, You shouldn't initialize the ViewController using Storyboards")
-  }
+    private let mainView: SignInView
+    private var interactor: SignInInteractable!
+    private var router: SignInRouting!
+    
+    required init(factory: SignInFactory, mainView: SignInView, dataSource: SignInModel.DataSource) {
+        self.mainView = mainView
+        
+        super.init(nibName: nil, bundle: nil)
+        
+        let interactorFactory = factory as! SignInInteractorFactorable.InteractableFactory
+        interactor = factory.makeInteractor(factory: interactorFactory, viewController: self, dataSource: dataSource)
+        router = factory.makeRouter(viewController: self)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //interactor.doSomething(item: 22)
+    }
+    
+    override func loadView() {
+        mainView.delegate = self
+        view = mainView
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented, You shouldn't initialize the ViewController using Storyboards")
+    }
 }
 
 // MARK: - SignInDisplayLogic
 extension SignInViewController: SignInDisplayLogic {
-
-  func displayViewModel(_ viewModel: SignInModel.ViewModel) {
-    DispatchQueue.main.async {
-      switch viewModel {
-
-      case .doSomething(let viewModel):
-        self.displayDoSomething(viewModel)
-      }
+    
+    func displayViewModel(_ viewModel: SignInModel.ViewModel) {
+        DispatchQueue.main.async {
+            switch viewModel {
+                
+            case .doSomething(let viewModel):
+                self.displayDoSomething(viewModel)
+            }
+        }
     }
-  }
 }
 
 
 // MARK: - SignInViewDelegate
 extension SignInViewController: SignInViewDelegate {
-  
-  func sendDataBackToParent(_ data: Data) {
-    //usually this delegate takes care of user actions and requests through UI
     
-    //do something with the data or message sent back from mainView
-  }
+    func sendDataBackToParent(_ data: Data) {
+        //usually this delegate takes care of user actions and requests through UI
+        
+        //do something with the data or message sent back from mainView
+    }
 }
 
 
 // MARK: - Private Zone
 private extension SignInViewController {
-  
-  func displayDoSomething(_ viewModel: NSObject) {
-    print("Use the mainView to present the viewModel")
-    //example of using router
-    router.routeTo(.xScene(xData: 22))
-  }
+    
+    func displayDoSomething(_ viewModel: NSObject) {
+        print("Use the mainView to present the viewModel")
+        //example of using router
+        router.routeTo(.xScene(xData: 22))
+    }
 }
