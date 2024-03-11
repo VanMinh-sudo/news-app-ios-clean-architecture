@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CustomizeUIAfterLoadNib {
+    func customizeUI()
+}
+
 class CustomViewWithXib: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -18,7 +22,7 @@ class CustomViewWithXib: UIView {
         setupUI()
     }
 
-    func setupUI() {
+    private func setupUI() {
         translatesAutoresizingMaskIntoConstraints = false
         let contentView = Bundle.main.loadNibNamed(String(describing: Self.self), owner: self, options: nil)?[0] as! UIView
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -27,5 +31,9 @@ class CustomViewWithXib: UIView {
         contentView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         contentView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+
+        if self is CustomizeUIAfterLoadNib {
+            (self as? CustomizeUIAfterLoadNib)?.customizeUI()
+        }
     }
 }

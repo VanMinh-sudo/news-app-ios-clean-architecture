@@ -13,39 +13,35 @@
 import Foundation
 
 protocol SignInPresentationLogic {
-  func presentResponse(_ response: SignInModel.Response)
+    func presentResponse(_ response: SignInModel.Response)
 }
 
 final class SignInPresenter {
-  private weak var viewController: SignInDisplayLogic?
-  
-  init(viewController: SignInDisplayLogic?) {
-    self.viewController = viewController
-  }
+    private weak var viewController: SignInDisplayLogic?
+
+    init(viewController: SignInDisplayLogic?) {
+        self.viewController = viewController
+    }
 }
 
 
 // MARK: - SignInPresentationLogic
 extension SignInPresenter: SignInPresentationLogic {
-  
-  func presentResponse(_ response: SignInModel.Response) {
-    
-    switch response {
-      
-    case .doSomething(let theNewItem, let isItem):
-      presentDoSomething(theNewItem, isItem)
+
+    func presentResponse(_ response: SignInModel.Response) {
+
+        switch response {
+        case .userNameDidChange(let userName):
+            handleUserNameDidChange(userName: userName)
+        }
     }
-  }
 }
 
 
 // MARK: - Private Zone
 private extension SignInPresenter {
-  
-  func presentDoSomething(_ newItem: Int, _ isItem: Bool) {
-    
-    //prepare data for display and send it further
-    
-    viewController?.displayViewModel(.doSomething(viewModelData: NSObject()))
-  }
+    func handleUserNameDidChange(userName: String?) {
+
+        let viewModel = SignInModel.ViewModel.reloadUserNameTextField(isNotEmpty(userName))
+    }
 }

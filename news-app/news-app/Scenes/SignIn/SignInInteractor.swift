@@ -15,56 +15,37 @@ import Foundation
 typealias SignInInteractable = SignInBusinessLogic & SignInDataStore
 
 protocol SignInBusinessLogic {
-  
-  func doRequest(_ request: SignInModel.Request)
+
+    func doRequest(_ request: SignInModel.Request)
 }
 
 protocol SignInDataStore {
-  var dataSource: SignInModel.DataSource { get }
+    var dataSource: SignInModel.DataSource { get }
 }
 
 final class SignInInteractor: SignInDataStore {
-  
-  var dataSource: SignInModel.DataSource
-  
-  private var factory: SignInInteractorFactorable.InteractableFactory
-  private var presenter: SignInPresentationLogic
-  
-  init(factory: SignInInteractorFactorable.InteractableFactory, viewController: SignInDisplayLogic?, dataSource: SignInModel.DataSource) {
-    self.factory = factory
-    self.dataSource = dataSource
-    self.presenter = factory.makePresenter(viewController: viewController)
-  }
-}
 
+    var dataSource: SignInModel.DataSource
 
-// MARK: - SignInBusinessLogic
-extension SignInInteractor: SignInBusinessLogic {
-  
-  func doRequest(_ request: SignInModel.Request) {
-    DispatchQueue.global(qos: .userInitiated).async {
-      
-      switch request {
-        
-      case .doSomething(let item):
-        self.doSomething(item)
-      }
+    private var factory: SignInInteractorFactorable.InteractableFactory
+    private var presenter: SignInPresentationLogic
+
+    init(factory: SignInInteractorFactorable.InteractableFactory, viewController: SignInDisplayLogic?, dataSource: SignInModel.DataSource) {
+        self.factory = factory
+        self.dataSource = dataSource
+        self.presenter = factory.makePresenter(viewController: viewController)
     }
-  }
 }
 
-
-// MARK: - Private Zone
-private extension SignInInteractor {
-  
-  func doSomething(_ item: Int) {
-    
-    //construct the Service right before using it
-    //let serviceX = factory.makeXService()
-    
-    // get new data async or sync
-    //let newData = serviceX.getNewData()
-    
-    presenter.presentResponse(.doSomething(newItem: item + 1, isItem: true))
-  }
+extension SignInInteractor: SignInBusinessLogic {
+    func doRequest(_ request: SignInModel.Request) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else {return}
+            switch request {
+            case .userNameDidChange(let userName):
+                dataSource.userName = userName
+                self.presenter.presentResponse(SignInModel.Response.userNameDidChange(userName))
+            }
+        }
+    }
 }

@@ -14,25 +14,25 @@
 import Foundation
 
 enum SignInModel {
-  
-  enum Request {
-    case doSomething(item: Int)
-  }
-  
-  enum Response {
-    case doSomething(newItem: Int, isItem: Bool)
-  }
-  
-  enum ViewModel {
-    case doSomething(viewModelData: NSObject)
-  }
-  
-  enum Route {
-    case dismissSignInScene
-    case xScene(xData: Int)
-  }
-  
-  struct DataSource {
-    //var test: Int
-  }
+
+    enum Request {
+        case userNameDidChange(String?)
+    }
+
+    enum Response {
+        case userNameDidChange(String?)
+    }
+
+    enum ViewModel {
+        case reloadUserNameTextField(_ hasData: Bool)
+    }
+
+    enum Route {
+        case dismissSignInScene
+        case xScene(xData: Int)
+    }
+
+    struct DataSource {
+        var userName: String?
+    }
 }

@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+func isNotEmpty(_ inputString: String?) -> Bool {
+    return (inputString != nil) && !inputString!.isEmpty
+}

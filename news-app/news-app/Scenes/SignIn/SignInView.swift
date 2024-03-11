@@ -11,10 +11,11 @@
 //
 
 import UIKit
+import Combine
 
 protocol SignInViewDelegate where Self: UIViewController {
 
-    func sendDataBackToParent(_ data: Data)
+    func textFieldDidBeginEditing(_ textField: UITextField)
 }
 
 final class SignInView: CustomViewWithXib {
@@ -26,12 +27,37 @@ final class SignInView: CustomViewWithXib {
     @IBOutlet weak var signInUpButton: UIButton!
     @IBOutlet weak var orSignWithLabel: UILabel!
     @IBOutlet weak var termAndConditionLabel: UILabel!
-    
+
+    static let userNameTextFieldTag = 999
+    static let passwordTextFieldTag = 998
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+}
+
+extension SignInView: CustomizeUIAfterLoadNib {
+    func customizeUI() {
+        userNameTextField.textField.borderStyle = .none
+        userNameTextField.textField.delegate = self
+        userNameTextField.textField.tag = SignInView.userNameTextFieldTag
+        userNameTextField.rightButton.setImage(nil, for: .normal)
+        userNameTextField.subLabel.isHidden = true
+
+        passwordTextField.textField.borderStyle = .none
+        passwordTextField.textField.tag = SignInView.passwordTextFieldTag
+        passwordTextField.rightButton.tintColor = .black
+        passwordTextField.subLabel.isHidden = true
+        passwordTextField.textField.isSecureTextEntry = true
+    }
+}
+
+extension SignInView: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        delegate?.textFieldDidBeginEditing(textField)
     }
 }
