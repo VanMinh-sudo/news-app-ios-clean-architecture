@@ -11,11 +11,10 @@
 //
 
 import UIKit
-import Combine
 
 protocol SignInViewDelegate where Self: UIViewController {
 
-    func textFieldDidBeginEditing(_ textField: UITextField)
+    func sendDataBackToParent(_ data: Data)
 }
 
 final class SignInView: CustomViewWithXib {

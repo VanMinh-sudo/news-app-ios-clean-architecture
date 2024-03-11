@@ -5,3 +5,10 @@
   Created by minhnv1 on 01/03/2024.
   
 */
+"authen_email" = "Email";
+"authen_password" = "Mật khẩu";
+"authen_signUp" = "Đăng ký";
+"authen_signIn" = "Đăng nhập";
+"authen_orSignInWith" = "Hoặc đăng nhập với";
+"authen_termAndConditions_pre" = "Bằng việc đăng ký, bạn đã đồng ý với";
+"authen_termAndConditions" = "Điều khoản sử dụng";

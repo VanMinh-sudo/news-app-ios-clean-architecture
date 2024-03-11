@@ -5,3 +5,10 @@
   Created by minhnv1 on 01/03/2024.
   
 */
+"authen_email" = "Email";
+"authen_password" = "Password";
+"authen_signUp" = "Sign Up";
+"authen_signIn" = "Sign In";
+"authen_orSignInWith" = "Or Sign In With";
+"authen_termAndConditions_pre" = "By signing up to News24 you are accepting our";
+"authen_termAndConditions" = "Terms & Conditions";
