@@ -17,14 +17,30 @@ enum SignInModel {
 
     enum Request {
         case userNameDidChange(String?)
+        case passwordDidChange(String?)
+        case setupLocalized
+        case setupForgotButtonState
+        case setupSignInUpButtonInitialState
+        case signInOrSignUp
     }
 
     enum Response {
-        case userNameDidChange(String?)
+        case userNameHasData(Bool)
+        case passwordHasData(Bool)
+        case signInUpButtonShouldChangeState(_ isEnable: Bool)
+        case setupLocalizedCompleted(_ screenType: DataSource.ScreenType)
+        case setupForgotButtonStateCompleted(_ screenType: DataSource.ScreenType)
+        case signUpResult(_ result: SignUpResult)
     }
 
     enum ViewModel {
         case reloadUserNameTextField(_ hasData: Bool)
+        case reloadPasswordTextField(_ hasData: Bool)
+        case reloadSignInUpButtonState(_ isEnable: Bool)
+        case localizedStrings(_ value: DataSource.LocalizedString)
+        case forgotPasswordState(_ isShow: Bool)
+        case signUpFail(_ errorMessage: String?)
+        case signUpSuccess
     }
 
     enum Route {
@@ -33,6 +49,20 @@ enum SignInModel {
     }
 
     struct DataSource {
+        enum ScreenType {
+            case signIn
+            case signUp
+        }
+        struct LocalizedString {
+            var loginUpButtonTitle: String?
+            var emailText: String?
+            var passwordText: String?
+            var orSignInText: String?
+            var bottomTextAttributedString: NSAttributedString?
+            var forgotPasswordText: String?
+        }
         var userName: String?
+        var password: String?
+        var screenType: ScreenType = .signUp
     }
 }

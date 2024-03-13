@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		86C34CD92B9F205200C5C448 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C34CD82B9F205200C5C448 /* StringUtils.swift */; };
 		229843242B92283100446FC9 /* LocalizationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229843232B92283100446FC9 /* LocalizationCenter.swift */; };
 		229843272B922A7300446FC9 /* ManageAppLanguageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229843262B922A7300446FC9 /* ManageAppLanguageService.swift */; };
+		8627290E2BA003980027F5A2 /* DismissKeyboardByTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627290D2BA003980027F5A2 /* DismissKeyboardByTap.swift */; };
+		862729102BA006D30027F5A2 /* PasswordValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627290F2BA006D30027F5A2 /* PasswordValidatorService.swift */; };
+		86ABEDB72BA17F070036D04C /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABEDB62BA17F070036D04C /* SignUpService.swift */; };
+		86ABEDB92BA18BE70036D04C /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABEDB82BA18BE70036D04C /* CommonError.swift */; };
+		86ABEDBB2BA1932A0036D04C /* EmailValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABEDBA2BA1932A0036D04C /* EmailValidatorService.swift */; };
+		86ABEDBF2BA19AE60036D04C /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABEDBE2BA19AE60036D04C /* AlertUtils.swift */; };
+		86C34CD92B9F205200C5C448 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C34CD82B9F205200C5C448 /* StringUtils.swift */; };
 		86CF713C2B915AE900B930B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF713B2B915AE900B930B6 /* AppDelegate.swift */; };
 		86CF713E2B915AE900B930B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF713D2B915AE900B930B6 /* SceneDelegate.swift */; };
 		86CF71402B915AE900B930B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF713F2B915AE900B930B6 /* ViewController.swift */; };
@@ -61,9 +67,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		86C34CD82B9F205200C5C448 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		229843232B92283100446FC9 /* LocalizationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationCenter.swift; sourceTree = "<group>"; };
 		229843262B922A7300446FC9 /* ManageAppLanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAppLanguageService.swift; sourceTree = "<group>"; };
+		8627290D2BA003980027F5A2 /* DismissKeyboardByTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboardByTap.swift; sourceTree = "<group>"; };
+		8627290F2BA006D30027F5A2 /* PasswordValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidatorService.swift; sourceTree = "<group>"; };
+		86ABEDB62BA17F070036D04C /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
+		86ABEDB82BA18BE70036D04C /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
+		86ABEDBA2BA1932A0036D04C /* EmailValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatorService.swift; sourceTree = "<group>"; };
+		86ABEDBE2BA19AE60036D04C /* AlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
+		86C34CD82B9F205200C5C448 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		86CF71382B915AE900B930B6 /* news-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "news-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF713B2B915AE900B930B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86CF713D2B915AE900B930B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,20 +139,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		86C34CD62B9F1FEC00C5C448 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				86C34CD82B9F205200C5C448 /* StringUtils.swift */,
-			);
-			path = Utils;
-               sourceTree = "<group>";
-        };
 		229843252B922A4400446FC9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				229843262B922A7300446FC9 /* ManageAppLanguageService.swift */,
+				8627290F2BA006D30027F5A2 /* PasswordValidatorService.swift */,
+				86ABEDB62BA17F070036D04C /* SignUpService.swift */,
+				86ABEDBA2BA1932A0036D04C /* EmailValidatorService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		8627290B2BA003710027F5A2 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				86CF71982B91623800B930B6 /* NewsCommonTextField.swift */,
+				86CF719A2B91625F00B930B6 /* NewsCommonTextField.xib */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		8627290C2BA0037E0027F5A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				86CF719C2B91667200B930B6 /* CustomViewWithXib.swift */,
+				8627290D2BA003980027F5A2 /* DismissKeyboardByTap.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		86C34CD62B9F1FEC00C5C448 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				86C34CD82B9F205200C5C448 /* StringUtils.swift */,
+				86ABEDB82BA18BE70036D04C /* CommonError.swift */,
+				86ABEDBE2BA19AE60036D04C /* AlertUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		86CF712F2B915AE900B930B6 = {
@@ -258,9 +293,8 @@
 		86CF719F2B91809800B930B6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				86CF71982B91623800B930B6 /* NewsCommonTextField.swift */,
-				86CF719A2B91625F00B930B6 /* NewsCommonTextField.xib */,
-				86CF719C2B91667200B930B6 /* CustomViewWithXib.swift */,
+				8627290C2BA0037E0027F5A2 /* Views */,
+				8627290B2BA003710027F5A2 /* TextFields */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -419,24 +453,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				86CF71832B915E2B00B930B6 /* MainRootView.swift in Sources */,
+				86ABEDB92BA18BE70036D04C /* CommonError.swift in Sources */,
 				86CF71402B915AE900B930B6 /* ViewController.swift in Sources */,
 				86CF71822B915E2B00B930B6 /* MainRootInteractor.swift in Sources */,
 				86CF713C2B915AE900B930B6 /* AppDelegate.swift in Sources */,
 				86CF71842B915E2B00B930B6 /* MainRootModel.swift in Sources */,
 				86CF71992B91623800B930B6 /* NewsCommonTextField.swift in Sources */,
 				86CF71862B915E8800B930B6 /* AppInjector.swift in Sources */,
+				862729102BA006D30027F5A2 /* PasswordValidatorService.swift in Sources */,
 				86CF71912B91608F00B930B6 /* SignInRouter.swift in Sources */,
+				86ABEDB72BA17F070036D04C /* SignUpService.swift in Sources */,
+				8627290E2BA003980027F5A2 /* DismissKeyboardByTap.swift in Sources */,
 				229843272B922A7300446FC9 /* ManageAppLanguageService.swift in Sources */,
 				86CF71922B91608F00B930B6 /* SignInViewController.swift in Sources */,
 				86C34CD92B9F205200C5C448 /* StringUtils.swift in Sources */,
 				86CF719D2B91667200B930B6 /* CustomViewWithXib.swift in Sources */,
 				86CF71932B91608F00B930B6 /* SignInInteractor.swift in Sources */,
+				86ABEDBB2BA1932A0036D04C /* EmailValidatorService.swift in Sources */,
 				86CF71952B91608F00B930B6 /* SignInModel.swift in Sources */,
 				86CF718F2B91608F00B930B6 /* SignInFactorable.swift in Sources */,
 				86CF71942B91608F00B930B6 /* SignInView.swift in Sources */,
 				86CF71742B915D3300B930B6 /* MainWindow.swift in Sources */,
 				86CF71802B915E2B00B930B6 /* MainRootPresenter.swift in Sources */,
 				86CF71902B91608F00B930B6 /* SignInPresenter.swift in Sources */,
+				86ABEDBF2BA19AE60036D04C /* AlertUtils.swift in Sources */,
 				86CF71762B915D8E00B930B6 /* MainRootViewController.swift in Sources */,
 				86CF71812B915E2B00B930B6 /* MainRootRouter.swift in Sources */,
 				86CF717F2B915E2B00B930B6 /* MainRootFactorable.swift in Sources */,

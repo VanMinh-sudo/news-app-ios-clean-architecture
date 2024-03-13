@@ -18,7 +18,7 @@ final class LocalizationCenter: LocalizationCenterable {
     private init() {}
     
     func localized(_ key: String) -> String {
-        let currentLanguage = manageAppLanguageService.getCurrentLanguage()
+//        let currentLanguage = manageAppLanguageService.getCurrentLanguage()
         return NSLocalizedString(key, comment: "")
     }
 }

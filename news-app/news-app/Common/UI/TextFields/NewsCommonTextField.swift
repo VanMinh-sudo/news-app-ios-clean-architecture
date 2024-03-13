@@ -12,7 +12,8 @@ class NewsCommonTextField: CustomViewWithXib {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var rightButton: UIButton!
-    @IBOutlet weak var subLabel: UILabel!
+    @IBOutlet weak var subLabel_1: UILabel!
+    @IBOutlet weak var subLabel_2: UILabel!
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)

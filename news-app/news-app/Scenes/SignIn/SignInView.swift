@@ -11,10 +11,13 @@
 //
 
 import UIKit
+import Combine
 
 protocol SignInViewDelegate where Self: UIViewController {
 
-    func sendDataBackToParent(_ data: Data)
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    func textFieldDidChange(_ textField: UITextField)
+    func onTapSignInUpButton()
 }
 
 final class SignInView: CustomViewWithXib {
@@ -25,38 +28,102 @@ final class SignInView: CustomViewWithXib {
     @IBOutlet weak var passwordTextField: NewsCommonTextField!
     @IBOutlet weak var signInUpButton: UIButton!
     @IBOutlet weak var orSignWithLabel: UILabel!
-    @IBOutlet weak var termAndConditionLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
 
     static let userNameTextFieldTag = 999
     static let passwordTextFieldTag = 998
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
+    var userNameHasData = PassthroughSubject<Bool, Never>()
+    var passwordHasData = PassthroughSubject<Bool, Never>()
+    var isEnableSignInUpButton = PassthroughSubject<Bool, Never>()
+    private var cancellable = Set<AnyCancellable>()
 }
 
 extension SignInView: CustomizeUIAfterLoadNib {
     func customizeUI() {
         userNameTextField.textField.borderStyle = .none
-        userNameTextField.textField.delegate = self
         userNameTextField.textField.tag = SignInView.userNameTextFieldTag
+        userNameTextField.textField.addTarget(self, action: #selector(textFieldDidBeginEditing(_ :)), for: .editingDidBegin)
+        userNameTextField.textField.addTarget(self, action: #selector(textFieldDidChange(_ :)), for: .editingChanged)
+        userNameTextField.label.isHidden = true
         userNameTextField.rightButton.setImage(nil, for: .normal)
-        userNameTextField.subLabel.isHidden = true
+        userNameTextField.subLabel_1.isHidden = true
+        userNameTextField.subLabel_2.isHidden = true
 
         passwordTextField.textField.borderStyle = .none
         passwordTextField.textField.tag = SignInView.passwordTextFieldTag
+        passwordTextField.textField.addTarget(self, action: #selector(textFieldDidBeginEditing(_ :)), for: .editingDidBegin)
+        passwordTextField.textField.addTarget(self, action: #selector(textFieldDidChange(_ :)), for: .editingChanged)
+        passwordTextField.label.isHidden = true
         passwordTextField.rightButton.tintColor = .black
-        passwordTextField.subLabel.isHidden = true
+        passwordTextField.rightButton.isHidden = true
+        passwordTextField.rightButton.addTarget(self, action: #selector(togglePasswordSecureTextEntry), for: .touchUpInside)
+        passwordTextField.subLabel_1.isHidden = true
+        passwordTextField.subLabel_2.isUserInteractionEnabled = true
+        passwordTextField.subLabel_2.textAlignment = .right
+        let forgotPasswordTapGesture = UITapGestureRecognizer(target: self, action: #selector(forgotPasswordDidTap))
+        passwordTextField.subLabel_2.addGestureRecognizer(forgotPasswordTapGesture)
         passwordTextField.textField.isSecureTextEntry = true
+
+        signInUpButton.addTarget(self, action: #selector(onTapSignInUpButton), for: .touchUpInside)
+
+        observeViewModel()
+    }
+
+    func setLocalization(_ localizedModel: SignInModel.DataSource.LocalizedString) {
+        userNameTextField.textField.placeholder = localizedModel.emailText
+        userNameTextField.label.text = localizedModel.emailText
+        passwordTextField.textField.placeholder = localizedModel.passwordText
+        passwordTextField.label.text = localizedModel.passwordText
+        orSignWithLabel.text = localizedModel.orSignInText
+        signInUpButton.setTitle(localizedModel.loginUpButtonTitle, for: .normal)
+        bottomLabel.attributedText = localizedModel.bottomTextAttributedString
+        passwordTextField.subLabel_2.text = localizedModel.forgotPasswordText
+    }
+
+    private func observeViewModel() {
+        userNameHasData
+            .sink { [weak self] hasData in
+                self?.userNameTextField.label.isHidden = !hasData
+            }
+            .store(in: &cancellable)
+        passwordHasData
+            .sink { [weak self] hasData in
+                self?.passwordTextField.rightButton.isHidden = !hasData
+                self?.passwordTextField.label.isHidden = !hasData
+            }
+            .store(in: &cancellable)
+        isEnableSignInUpButton
+            .sink { [weak self] isEnable in
+                self?.signInUpButton.isEnabled = isEnable
+            }
+            .store(in: &cancellable)
+    }
+
+    @objc private func textFieldDidBeginEditing(_ textField: UITextField) {
+        delegate?.textFieldDidBeginEditing(textField)
+    }
+
+    @objc private func textFieldDidChange(_ textField: UITextField) {
+        delegate?.textFieldDidChange(textField)
+    }
+
+    @objc private func togglePasswordSecureTextEntry() {
+        passwordTextField.textField.isSecureTextEntry = !passwordTextField.textField.isSecureTextEntry
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] timer in
+            guard let self = self else {return}
+            passwordTextField.textField.isSecureTextEntry = !passwordTextField.textField.isSecureTextEntry
+            timer.invalidate()
+        }
+    }
+
+    @objc private func forgotPasswordDidTap() {
+        //todo
+    }
+
+    @objc private func onTapSignInUpButton() {
+        delegate?.onTapSignInUpButton()
     }
 }
 
-extension SignInView: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        delegate?.textFieldDidBeginEditing(textField)
-    }
-}
+extension SignInView: DismissKeyboardByTap {}

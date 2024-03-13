@@ -37,6 +37,9 @@ final class SignInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor.doRequest(.setupLocalized)
+        interactor.doRequest(.setupForgotButtonState)
+        interactor.doRequest(.setupSignInUpButtonInitialState)
     }
 
     override func loadView() {
@@ -54,11 +57,23 @@ final class SignInViewController: UIViewController {
 extension SignInViewController: SignInDisplayLogic {
 
     func displayViewModel(_ viewModel: SignInModel.ViewModel) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {return}
             switch viewModel {
-
-            case .doSomething(let viewModel):
-                self.displayDoSomething(viewModel)
+            case .reloadUserNameTextField(let hasData):
+                mainView.userNameHasData.send(hasData)
+            case .reloadPasswordTextField(let hasData):
+                mainView.passwordHasData.send(hasData)
+            case .reloadSignInUpButtonState(let isEnable):
+                mainView.isEnableSignInUpButton.send(isEnable)
+            case .localizedStrings(let localizedModel):
+                mainView.setLocalization(localizedModel)
+            case .forgotPasswordState(let isShow):
+                mainView.passwordTextField.subLabel_2.isHidden = !isShow
+            case .signUpSuccess:
+                router.routeTo(.dismissSignInScene)
+            case .signUpFail(let message):
+                self.showOKAlert(title: nil, message: message)
             }
         }
     }
@@ -68,8 +83,18 @@ extension SignInViewController: SignInDisplayLogic {
 // MARK: - SignInViewDelegate
 extension SignInViewController: SignInViewDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
+    }
+
+    func textFieldDidChange(_ textField: UITextField) {
         if textField.tag == SignInView.userNameTextFieldTag {
+            interactor.doRequest(.userNameDidChange(textField.text))
+        } else if textField.tag == SignInView.passwordTextFieldTag {
+            interactor.doRequest(.passwordDidChange(textField.text))
         }
+    }
+
+    func onTapSignInUpButton() {
+        interactor.doRequest(.signInOrSignUp)
     }
 }
 

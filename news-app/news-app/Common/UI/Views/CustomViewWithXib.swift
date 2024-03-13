@@ -35,5 +35,10 @@ class CustomViewWithXib: UIView {
         if self is CustomizeUIAfterLoadNib {
             (self as? CustomizeUIAfterLoadNib)?.customizeUI()
         }
+
+        if self is DismissKeyboardByTap {
+            (self as? DismissKeyboardByTap)?.setupDismissKeyboardTapGesture()
+        }
     }
+
 }

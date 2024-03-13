@@ -11,6 +11,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol SignInPresentationLogic {
     func presentResponse(_ response: SignInModel.Response)
@@ -31,17 +32,45 @@ extension SignInPresenter: SignInPresentationLogic {
     func presentResponse(_ response: SignInModel.Response) {
 
         switch response {
-        case .userNameDidChange(let userName):
-            handleUserNameDidChange(userName: userName)
+        case .userNameHasData(let hasData):
+            let viewModel = SignInModel.ViewModel.reloadUserNameTextField(hasData)
+            viewController?.displayViewModel(viewModel)
+        case .passwordHasData(let hasData):
+            viewController?.displayViewModel(.reloadPasswordTextField(hasData))
+        case .signInUpButtonShouldChangeState(let isEnable):
+            viewController?.displayViewModel(.reloadSignInUpButtonState(isEnable))
+        case .setupLocalizedCompleted(let screenType):
+            setupLocalizedCompleted(screenType)
+        case .setupForgotButtonStateCompleted(let screenType):
+            viewController?.displayViewModel(.forgotPasswordState(screenType == .signIn))
+        case .signUpResult(let result):
+            switch result {
+            case .success(_):
+                viewController?.displayViewModel(.signUpSuccess)
+            case .failure(let error as CommonError):
+                viewController?.displayViewModel(.signUpFail(error.localizeErrorKey))
+            default:
+                break
+            }
         }
     }
-}
 
-
-// MARK: - Private Zone
-private extension SignInPresenter {
-    func handleUserNameDidChange(userName: String?) {
-
-        let viewModel = SignInModel.ViewModel.reloadUserNameTextField(isNotEmpty(userName))
+    private func setupLocalizedCompleted(_ screenType: SignInModel.DataSource.ScreenType) {
+        let finalAttrString = NSMutableAttributedString()
+        let prefixKey = screenType == .signIn ? "authen_dontHaveAccount" : "authen_termAndConditions_pre"
+        let prefix = NSAttributedString.init(string: localized(key: prefixKey) ?? "")
+        let postfixKey = screenType == .signIn ? "authen_register" : "authen_TandC"
+        let postfix = NSAttributedString.init(string: localized(key: postfixKey) ?? "", attributes: [.font: UIFont.boldSystemFont(ofSize: 17)])
+        finalAttrString.append(prefix)
+        finalAttrString.append(NSAttributedString.init(string: " "))
+        finalAttrString.append(postfix)
+        var model = SignInModel.DataSource.LocalizedString()
+        model.bottomTextAttributedString = finalAttrString
+        model.emailText = localized(key: "authen_email")
+        model.passwordText = localized(key: "authen_password")
+        model.loginUpButtonTitle = screenType == .signIn ? localized(key: "authen_signIn") : localized(key: "authen_signUp")
+        model.forgotPasswordText = localized(key: "authen_forgotPassword")
+        model.orSignInText = localized(key: "authen_orSignInWith")
+        viewController?.displayViewModel(.localizedStrings(model))
     }
 }

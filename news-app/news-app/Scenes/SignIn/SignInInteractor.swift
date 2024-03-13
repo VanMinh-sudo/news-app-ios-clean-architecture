@@ -29,11 +29,17 @@ final class SignInInteractor: SignInDataStore {
 
     private var factory: SignInInteractorFactorable.InteractableFactory
     private var presenter: SignInPresentationLogic
+    private var passwordValidatorService: PasswordValidatorServicable
+    private var emailValidatorService: EmailValidatorServiceable
+    private var signUpService: SignUpServiceable
 
     init(factory: SignInInteractorFactorable.InteractableFactory, viewController: SignInDisplayLogic?, dataSource: SignInModel.DataSource) {
         self.factory = factory
         self.dataSource = dataSource
         self.presenter = factory.makePresenter(viewController: viewController)
+        self.passwordValidatorService = factory.makePasswordValidatorService()
+        self.emailValidatorService = factory.makeEmailValidatorService()
+        self.signUpService = factory.makeSignUpService()
     }
 }
 
@@ -44,8 +50,30 @@ extension SignInInteractor: SignInBusinessLogic {
             switch request {
             case .userNameDidChange(let userName):
                 dataSource.userName = userName
-                self.presenter.presentResponse(SignInModel.Response.userNameDidChange(userName))
+                self.presenter.presentResponse(SignInModel.Response.userNameHasData(isNotEmpty(userName)))
+                self.presenter.presentResponse(.signInUpButtonShouldChangeState(isEnableSignInUpButton()))
+            case .passwordDidChange(let password):
+                dataSource.password = password
+                self.presenter.presentResponse(.passwordHasData(isNotEmpty(password)))
+                self.presenter.presentResponse(.signInUpButtonShouldChangeState(isEnableSignInUpButton()))
+            case .setupLocalized:
+                self.presenter.presentResponse(.setupLocalizedCompleted(dataSource.screenType))
+            case .setupForgotButtonState:
+                self.presenter.presentResponse(.setupForgotButtonStateCompleted(dataSource.screenType))
+            case .setupSignInUpButtonInitialState:
+                self.presenter.presentResponse(.signInUpButtonShouldChangeState(false))
+            case .signInOrSignUp:
+                Task {
+                    if self.dataSource.screenType == .signUp {
+                        let result = await self.signUpService.signUp(email: self.dataSource.userName!, password: self.dataSource.password!)
+                        self.presenter.presentResponse(.signUpResult(result))
+                    }
+                }
             }
         }
+    }
+
+    private func isEnableSignInUpButton() -> Bool {
+        return emailValidatorService.isValidEmail(email: dataSource.userName) && passwordValidatorService.isValid(dataSource.password)
     }
 }

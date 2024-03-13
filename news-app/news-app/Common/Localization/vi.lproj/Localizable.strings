@@ -6,9 +6,14 @@
   
 */
 "authen_email" = "Email";
-"authen_password" = "Password";
-"authen_signUp" = "Sign Up";
-"authen_signIn" = "Sign In";
-"authen_orSignInWith" = "Or Sign In With";
-"authen_termAndConditions_pre" = "By signing up to News24 you are accepting our";
-"authen_termAndConditions" = "Terms & Conditions";
+"authen_password" = "Mật khẩu";
+"authen_signUp" = "Đăng ký";
+"authen_signIn" = "Đăng nhập";
+"authen_orSignInWith" = "Hoặc đăng nhập với";
+"authen_termAndConditions_pre" = "Bằng việc đăng ký, bạn đã đồng ý với";
+"authen_TandC" = "Điều khoản sử dụng";
+"authen_dontHaveAccount" = "Bạn không có tài khoản?";
+"authen_register" = "Đăng ký";
+"authen_forgotPassword" = "Quên mật khẩu?";
+"data_saveError" = "Lưu dữ liệu thất bại!";
+"authen_emailExist" = "Email đã tồn tại!";

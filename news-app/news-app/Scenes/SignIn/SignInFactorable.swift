@@ -50,19 +50,26 @@ extension SignInFactorable {
 }
 
 
-class ConcreteSignInFactory: SignInFactorable {
-    
-}
+class ConcreteSignInFactory: SignInFactorable {}
 
 // MARK: - Service Factorable
 protocol SignInServicesFactorable {
-
-    //func makeXService() -> xService
+    func makeEmailValidatorService() -> EmailValidatorServiceable
+    func makePasswordValidatorService() -> PasswordValidatorServicable
+    func makeSignUpService() -> SignUpServiceable
 }
 
 extension SignInServicesFactorable {
 
-    //func makeXService() -> xService {
-    //   xService()
-    //}
+    func makePasswordValidatorService() -> PasswordValidatorServicable {
+        return PasswordValidatorService()
+    }
+
+    func makeEmailValidatorService() -> EmailValidatorServiceable {
+        return EmailValidatorService()
+    }
+
+    func makeSignUpService() -> SignUpServiceable {
+        return KeyChainSignUpAdapter()
+    }
 }
