@@ -46,12 +46,22 @@ extension SignInPresenter: SignInPresentationLogic {
         case .signUpResult(let result):
             switch result {
             case .success(_):
-                viewController?.displayViewModel(.signUpSuccess)
+                viewController?.displayViewModel(.signUpSuccess(localized(key: "authen_signUpSuccess")))
             case .failure(let error as CommonError):
                 viewController?.displayViewModel(.signUpFail(error.localizeErrorKey))
             default:
                 break
             }
+        case .signInResult(let result):
+            switch result {
+            case .success(_):
+                viewController?.displayViewModel(.signInSuccess)
+            case .failure(let signInError):
+                viewController?.displayViewModel(.signInFail(signInError))
+            }
+        case .screenTypeDidChange(let screenType):
+            viewController?.displayViewModel(.emailButtonIsHidden(screenType == .signIn))
+            viewController?.displayViewModel(.reloadConstraint)
         }
     }
 

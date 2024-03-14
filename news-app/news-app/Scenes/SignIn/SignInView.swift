@@ -14,10 +14,9 @@ import UIKit
 import Combine
 
 protocol SignInViewDelegate where Self: UIViewController {
-
-    func textFieldDidBeginEditing(_ textField: UITextField)
     func textFieldDidChange(_ textField: UITextField)
     func onTapSignInUpButton()
+    func onTapEmailButton()
 }
 
 final class SignInView: CustomViewWithXib {
@@ -27,6 +26,7 @@ final class SignInView: CustomViewWithXib {
     @IBOutlet weak var userNameTextField: NewsCommonTextField!
     @IBOutlet weak var passwordTextField: NewsCommonTextField!
     @IBOutlet weak var signInUpButton: UIButton!
+    @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var orSignWithLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
 
@@ -43,7 +43,6 @@ extension SignInView: CustomizeUIAfterLoadNib {
     func customizeUI() {
         userNameTextField.textField.borderStyle = .none
         userNameTextField.textField.tag = SignInView.userNameTextFieldTag
-        userNameTextField.textField.addTarget(self, action: #selector(textFieldDidBeginEditing(_ :)), for: .editingDidBegin)
         userNameTextField.textField.addTarget(self, action: #selector(textFieldDidChange(_ :)), for: .editingChanged)
         userNameTextField.label.isHidden = true
         userNameTextField.rightButton.setImage(nil, for: .normal)
@@ -52,7 +51,6 @@ extension SignInView: CustomizeUIAfterLoadNib {
 
         passwordTextField.textField.borderStyle = .none
         passwordTextField.textField.tag = SignInView.passwordTextFieldTag
-        passwordTextField.textField.addTarget(self, action: #selector(textFieldDidBeginEditing(_ :)), for: .editingDidBegin)
         passwordTextField.textField.addTarget(self, action: #selector(textFieldDidChange(_ :)), for: .editingChanged)
         passwordTextField.label.isHidden = true
         passwordTextField.rightButton.tintColor = .black
@@ -66,6 +64,8 @@ extension SignInView: CustomizeUIAfterLoadNib {
         passwordTextField.textField.isSecureTextEntry = true
 
         signInUpButton.addTarget(self, action: #selector(onTapSignInUpButton), for: .touchUpInside)
+        
+        emailButton.addTarget(self, action: #selector(onTapEmailButton), for: .touchUpInside)
 
         observeViewModel()
     }
@@ -100,10 +100,6 @@ extension SignInView: CustomizeUIAfterLoadNib {
             .store(in: &cancellable)
     }
 
-    @objc private func textFieldDidBeginEditing(_ textField: UITextField) {
-        delegate?.textFieldDidBeginEditing(textField)
-    }
-
     @objc private func textFieldDidChange(_ textField: UITextField) {
         delegate?.textFieldDidChange(textField)
     }
@@ -122,7 +118,13 @@ extension SignInView: CustomizeUIAfterLoadNib {
     }
 
     @objc private func onTapSignInUpButton() {
+        endEditing(true)
         delegate?.onTapSignInUpButton()
+    }
+    
+    @objc private func onTapEmailButton() {
+        endEditing(true)
+        delegate?.onTapEmailButton()
     }
 }
 

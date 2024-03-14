@@ -57,6 +57,7 @@ protocol SignInServicesFactorable {
     func makeEmailValidatorService() -> EmailValidatorServiceable
     func makePasswordValidatorService() -> PasswordValidatorServicable
     func makeSignUpService() -> SignUpServiceable
+    func makeSignInService() -> SignInServiceable
 }
 
 extension SignInServicesFactorable {
@@ -71,5 +72,9 @@ extension SignInServicesFactorable {
 
     func makeSignUpService() -> SignUpServiceable {
         return KeyChainSignUpAdapter()
+    }
+    
+    func makeSignInService() -> SignInServiceable {
+        return KeychainSignInAdapter()
     }
 }

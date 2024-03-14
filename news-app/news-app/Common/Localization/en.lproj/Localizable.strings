@@ -17,3 +17,4 @@
 "authen_forgotPassword" = "Forgot password?";
 "data_saveError" = "Save data fail!";
 "authen_emailExist" = "Email is exist!";
+"authen_signUpSuccess" = "Sign up success!";

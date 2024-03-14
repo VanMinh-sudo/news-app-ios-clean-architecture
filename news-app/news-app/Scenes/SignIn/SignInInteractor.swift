@@ -32,6 +32,7 @@ final class SignInInteractor: SignInDataStore {
     private var passwordValidatorService: PasswordValidatorServicable
     private var emailValidatorService: EmailValidatorServiceable
     private var signUpService: SignUpServiceable
+    private var signInService: SignInServiceable
 
     init(factory: SignInInteractorFactorable.InteractableFactory, viewController: SignInDisplayLogic?, dataSource: SignInModel.DataSource) {
         self.factory = factory
@@ -40,6 +41,7 @@ final class SignInInteractor: SignInDataStore {
         self.passwordValidatorService = factory.makePasswordValidatorService()
         self.emailValidatorService = factory.makeEmailValidatorService()
         self.signUpService = factory.makeSignUpService()
+        self.signInService = factory.makeSignInService()
     }
 }
 
@@ -67,8 +69,16 @@ extension SignInInteractor: SignInBusinessLogic {
                     if self.dataSource.screenType == .signUp {
                         let result = await self.signUpService.signUp(email: self.dataSource.userName!, password: self.dataSource.password!)
                         self.presenter.presentResponse(.signUpResult(result))
+                    } else {
+                        let result = await self.signInService.signIn(email: self.dataSource.userName!, password: self.dataSource.password!)
+                        self.presenter.presentResponse(.signInResult(result))
                     }
                 }
+            case .changeScreenType(let screenType):
+                dataSource.screenType = screenType
+                self.presenter.presentResponse(.setupLocalizedCompleted(screenType))
+                self.presenter.presentResponse(.setupForgotButtonStateCompleted(screenType))
+                self.presenter.presentResponse(.screenTypeDidChange(screenType))
             }
         }
     }

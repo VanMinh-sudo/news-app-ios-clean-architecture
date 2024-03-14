@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22804B132BA3519600E8BCF4 /* SignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22804B122BA3519600E8BCF4 /* SignInService.swift */; };
 		229843242B92283100446FC9 /* LocalizationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229843232B92283100446FC9 /* LocalizationCenter.swift */; };
 		229843272B922A7300446FC9 /* ManageAppLanguageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229843262B922A7300446FC9 /* ManageAppLanguageService.swift */; };
 		8627290E2BA003980027F5A2 /* DismissKeyboardByTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627290D2BA003980027F5A2 /* DismissKeyboardByTap.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22804B122BA3519600E8BCF4 /* SignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInService.swift; sourceTree = "<group>"; };
 		229843232B92283100446FC9 /* LocalizationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationCenter.swift; sourceTree = "<group>"; };
 		229843262B922A7300446FC9 /* ManageAppLanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAppLanguageService.swift; sourceTree = "<group>"; };
 		8627290D2BA003980027F5A2 /* DismissKeyboardByTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboardByTap.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				8627290F2BA006D30027F5A2 /* PasswordValidatorService.swift */,
 				86ABEDB62BA17F070036D04C /* SignUpService.swift */,
 				86ABEDBA2BA1932A0036D04C /* EmailValidatorService.swift */,
+				22804B122BA3519600E8BCF4 /* SignInService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				86CF713C2B915AE900B930B6 /* AppDelegate.swift in Sources */,
 				86CF71842B915E2B00B930B6 /* MainRootModel.swift in Sources */,
 				86CF71992B91623800B930B6 /* NewsCommonTextField.swift in Sources */,
+				22804B132BA3519600E8BCF4 /* SignInService.swift in Sources */,
 				86CF71862B915E8800B930B6 /* AppInjector.swift in Sources */,
 				862729102BA006D30027F5A2 /* PasswordValidatorService.swift in Sources */,
 				86CF71912B91608F00B930B6 /* SignInRouter.swift in Sources */,

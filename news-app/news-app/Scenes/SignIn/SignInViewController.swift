@@ -70,10 +70,22 @@ extension SignInViewController: SignInDisplayLogic {
                 mainView.setLocalization(localizedModel)
             case .forgotPasswordState(let isShow):
                 mainView.passwordTextField.subLabel_2.isHidden = !isShow
-            case .signUpSuccess:
-                router.routeTo(.dismissSignInScene)
+            case .signUpSuccess(let message):
+                self.showOKAlert(title: nil, message: message) { [weak self] in
+                    guard let self = self else {return}
+                    //navigate to list
+                }
             case .signUpFail(let message):
                 self.showOKAlert(title: nil, message: message)
+            case .reloadConstraint:
+                mainView.updateConstraintsIfNeeded()
+            case .signInSuccess:
+                print("sign in success")
+                //navigage
+            case .signInFail(let error):
+                print(error.localizedDescription)
+            case .emailButtonIsHidden(let isHidden):
+                mainView.emailButton.isHidden = isHidden
             }
         }
     }
@@ -82,8 +94,6 @@ extension SignInViewController: SignInDisplayLogic {
 
 // MARK: - SignInViewDelegate
 extension SignInViewController: SignInViewDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-    }
 
     func textFieldDidChange(_ textField: UITextField) {
         if textField.tag == SignInView.userNameTextFieldTag {
@@ -95,6 +105,10 @@ extension SignInViewController: SignInViewDelegate {
 
     func onTapSignInUpButton() {
         interactor.doRequest(.signInOrSignUp)
+    }
+    
+    func onTapEmailButton() {
+        interactor.doRequest(.changeScreenType(.signIn))
     }
 }
 

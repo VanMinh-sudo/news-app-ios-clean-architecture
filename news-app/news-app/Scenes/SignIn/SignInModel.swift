@@ -22,6 +22,7 @@ enum SignInModel {
         case setupForgotButtonState
         case setupSignInUpButtonInitialState
         case signInOrSignUp
+        case changeScreenType(DataSource.ScreenType)
     }
 
     enum Response {
@@ -31,6 +32,8 @@ enum SignInModel {
         case setupLocalizedCompleted(_ screenType: DataSource.ScreenType)
         case setupForgotButtonStateCompleted(_ screenType: DataSource.ScreenType)
         case signUpResult(_ result: SignUpResult)
+        case signInResult(_ result: SignInResult)
+        case screenTypeDidChange(DataSource.ScreenType)
     }
 
     enum ViewModel {
@@ -40,7 +43,11 @@ enum SignInModel {
         case localizedStrings(_ value: DataSource.LocalizedString)
         case forgotPasswordState(_ isShow: Bool)
         case signUpFail(_ errorMessage: String?)
-        case signUpSuccess
+        case signUpSuccess(_ successMessage: String?)
+        case signInSuccess
+        case signInFail(_ error: SignInError)
+        case reloadConstraint
+        case emailButtonIsHidden(Bool)
     }
 
     enum Route {

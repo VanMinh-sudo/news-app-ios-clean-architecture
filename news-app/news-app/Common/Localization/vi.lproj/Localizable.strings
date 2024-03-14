@@ -17,3 +17,4 @@
 "authen_forgotPassword" = "Quên mật khẩu?";
 "data_saveError" = "Lưu dữ liệu thất bại!";
 "authen_emailExist" = "Email đã tồn tại!";
+"authen_signUpSuccess" = "Đăng ký tài khoản thành công";
