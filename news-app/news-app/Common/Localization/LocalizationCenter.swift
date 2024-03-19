@@ -24,5 +24,5 @@ final class LocalizationCenter: LocalizationCenterable {
 }
 
 func localized(key: String, comment: String = "") -> String? {
-    return NSLocalizedString(key, comment: comment)
+    return String(localized: String.LocalizationValue(key), table: "Localizable")
 }
