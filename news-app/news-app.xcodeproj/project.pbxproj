@@ -12,10 +12,20 @@
 		229843272B922A7300446FC9 /* ManageAppLanguageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229843262B922A7300446FC9 /* ManageAppLanguageService.swift */; };
 		8627290E2BA003980027F5A2 /* DismissKeyboardByTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627290D2BA003980027F5A2 /* DismissKeyboardByTap.swift */; };
 		862729102BA006D30027F5A2 /* PasswordValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8627290F2BA006D30027F5A2 /* PasswordValidatorService.swift */; };
+		8698F8782BAD84DC003A81E9 /* ForgotPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8698F8772BAD84DC003A81E9 /* ForgotPasswordInteractor.swift */; };
 		86ABEDB72BA17F070036D04C /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABEDB62BA17F070036D04C /* SignUpService.swift */; };
 		86ABEDB92BA18BE70036D04C /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABEDB82BA18BE70036D04C /* CommonError.swift */; };
 		86ABEDBB2BA1932A0036D04C /* EmailValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABEDBA2BA1932A0036D04C /* EmailValidatorService.swift */; };
 		86ABEDBF2BA19AE60036D04C /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABEDBE2BA19AE60036D04C /* AlertUtils.swift */; };
+		86B2E9592BAC083600439682 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 86B2E9582BAC083600439682 /* SnapKit */; };
+		86B2E95B2BAC083600439682 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 86B2E95A2BAC083600439682 /* SnapKit-Dynamic */; };
+		86B31AC02BAADB8200BFB6A4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B31ABF2BAADB8200BFB6A4 /* Coordinator.swift */; };
+		86B31AC22BAADB9200BFB6A4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B31AC12BAADB9200BFB6A4 /* Router.swift */; };
+		86B31AC52BAADC4F00BFB6A4 /* AddChildRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B31AC42BAADC4F00BFB6A4 /* AddChildRouter.swift */; };
+		86B31AC72BAAE2CA00BFB6A4 /* SceneDelegateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B31AC62BAAE2CA00BFB6A4 /* SceneDelegateRouter.swift */; };
+		86B31AC92BAAE3B800BFB6A4 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B31AC82BAAE3B800BFB6A4 /* RootCoordinator.swift */; };
+		86B31ACB2BAAE6C200BFB6A4 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B31ACA2BAAE6C200BFB6A4 /* AuthenticationCoordinator.swift */; };
+		86B31ACD2BAAE79000BFB6A4 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B31ACC2BAAE79000BFB6A4 /* NavigationRouter.swift */; };
 		86C34CD92B9F205200C5C448 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C34CD82B9F205200C5C448 /* StringUtils.swift */; };
 		86CF713C2B915AE900B930B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF713B2B915AE900B930B6 /* AppDelegate.swift */; };
 		86CF713E2B915AE900B930B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF713D2B915AE900B930B6 /* SceneDelegate.swift */; };
@@ -47,6 +57,7 @@
 		86CF719B2B91625F00B930B6 /* NewsCommonTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86CF719A2B91625F00B930B6 /* NewsCommonTextField.xib */; };
 		86CF719D2B91667200B930B6 /* CustomViewWithXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CF719C2B91667200B930B6 /* CustomViewWithXib.swift */; };
 		86E201DC2BA974950037A496 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 86E201DB2BA974950037A496 /* Localizable.xcstrings */; };
+		86E694422BAC21D900F0FE60 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E694412BAC21D900F0FE60 /* ForgotPasswordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,10 +83,18 @@
 		229843262B922A7300446FC9 /* ManageAppLanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAppLanguageService.swift; sourceTree = "<group>"; };
 		8627290D2BA003980027F5A2 /* DismissKeyboardByTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboardByTap.swift; sourceTree = "<group>"; };
 		8627290F2BA006D30027F5A2 /* PasswordValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidatorService.swift; sourceTree = "<group>"; };
+		8698F8772BAD84DC003A81E9 /* ForgotPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractor.swift; sourceTree = "<group>"; };
 		86ABEDB62BA17F070036D04C /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		86ABEDB82BA18BE70036D04C /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		86ABEDBA2BA1932A0036D04C /* EmailValidatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidatorService.swift; sourceTree = "<group>"; };
 		86ABEDBE2BA19AE60036D04C /* AlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
+		86B31ABF2BAADB8200BFB6A4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		86B31AC12BAADB9200BFB6A4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		86B31AC42BAADC4F00BFB6A4 /* AddChildRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChildRouter.swift; sourceTree = "<group>"; };
+		86B31AC62BAAE2CA00BFB6A4 /* SceneDelegateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateRouter.swift; sourceTree = "<group>"; };
+		86B31AC82BAAE3B800BFB6A4 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		86B31ACA2BAAE6C200BFB6A4 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		86B31ACC2BAAE79000BFB6A4 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		86C34CD82B9F205200C5C448 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		86CF71382B915AE900B930B6 /* news-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "news-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF713B2B915AE900B930B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +131,7 @@
 		86CF719C2B91667200B930B6 /* CustomViewWithXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewWithXib.swift; sourceTree = "<group>"; };
 		86CF71A22B91811A00B930B6 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		86E201DB2BA974950037A496 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		86E694412BAC21D900F0FE60 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +139,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86B2E9592BAC083600439682 /* SnapKit in Frameworks */,
+				86B2E95B2BAC083600439682 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +189,27 @@
 				8627290D2BA003980027F5A2 /* DismissKeyboardByTap.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		86B31ABE2BAADAC700BFB6A4 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				86B31ABF2BAADB8200BFB6A4 /* Coordinator.swift */,
+				86B31AC82BAAE3B800BFB6A4 /* RootCoordinator.swift */,
+				86B31ACA2BAAE6C200BFB6A4 /* AuthenticationCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		86B31AC32BAADC0700BFB6A4 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				86B31AC12BAADB9200BFB6A4 /* Router.swift */,
+				86B31AC42BAADC4F00BFB6A4 /* AddChildRouter.swift */,
+				86B31AC62BAAE2CA00BFB6A4 /* SceneDelegateRouter.swift */,
+				86B31ACC2BAAE79000BFB6A4 /* NavigationRouter.swift */,
+			);
+			path = Routers;
 			sourceTree = "<group>";
 		};
 		86C34CD62B9F1FEC00C5C448 /* Utils */ = {
@@ -237,6 +280,7 @@
 		86CF716E2B915C4300B930B6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				86E694402BAC20CE00F0FE60 /* ForgotPassword */,
 				86CF71872B915FE200B930B6 /* SignIn */,
 				86CF71782B915DEA00B930B6 /* MainRoot */,
 			);
@@ -246,6 +290,8 @@
 		86CF71702B915CC500B930B6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				86B31AC32BAADC0700BFB6A4 /* Routers */,
+				86B31ABE2BAADAC700BFB6A4 /* Coordinators */,
 				86C34CD62B9F1FEC00C5C448 /* Utils */,
 				86CF71A12B9180AC00B930B6 /* Localization */,
 				86CF71A02B9180A200B930B6 /* DI */,
@@ -317,6 +363,15 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		86E694402BAC20CE00F0FE60 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				86E694412BAC21D900F0FE60 /* ForgotPasswordView.swift */,
+				8698F8772BAD84DC003A81E9 /* ForgotPasswordInteractor.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -333,6 +388,10 @@
 			dependencies = (
 			);
 			name = "news-app";
+			packageProductDependencies = (
+				86B2E9582BAC083600439682 /* SnapKit */,
+				86B2E95A2BAC083600439682 /* SnapKit-Dynamic */,
+			);
 			productName = "news-app";
 			productReference = 86CF71382B915AE900B930B6 /* news-app.app */;
 			productType = "com.apple.product-type.application";
@@ -406,6 +465,9 @@
 				vi,
 			);
 			mainGroup = 86CF712F2B915AE900B930B6;
+			packageReferences = (
+				86B2E9572BAC083600439682 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 86CF71392B915AE900B930B6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -452,23 +514,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				86CF71832B915E2B00B930B6 /* MainRootView.swift in Sources */,
+				86B31AC52BAADC4F00BFB6A4 /* AddChildRouter.swift in Sources */,
+				86B31ACB2BAAE6C200BFB6A4 /* AuthenticationCoordinator.swift in Sources */,
 				86ABEDB92BA18BE70036D04C /* CommonError.swift in Sources */,
 				86CF71402B915AE900B930B6 /* ViewController.swift in Sources */,
 				86CF71822B915E2B00B930B6 /* MainRootInteractor.swift in Sources */,
 				86CF713C2B915AE900B930B6 /* AppDelegate.swift in Sources */,
 				86CF71842B915E2B00B930B6 /* MainRootModel.swift in Sources */,
+				8698F8782BAD84DC003A81E9 /* ForgotPasswordInteractor.swift in Sources */,
 				86CF71992B91623800B930B6 /* NewsCommonTextField.swift in Sources */,
 				22804B132BA3519600E8BCF4 /* SignInService.swift in Sources */,
 				86CF71862B915E8800B930B6 /* AppInjector.swift in Sources */,
 				862729102BA006D30027F5A2 /* PasswordValidatorService.swift in Sources */,
+				86B31AC72BAAE2CA00BFB6A4 /* SceneDelegateRouter.swift in Sources */,
+				86B31AC22BAADB9200BFB6A4 /* Router.swift in Sources */,
 				86CF71912B91608F00B930B6 /* SignInRouter.swift in Sources */,
 				86ABEDB72BA17F070036D04C /* SignUpService.swift in Sources */,
 				8627290E2BA003980027F5A2 /* DismissKeyboardByTap.swift in Sources */,
 				229843272B922A7300446FC9 /* ManageAppLanguageService.swift in Sources */,
+				86E694422BAC21D900F0FE60 /* ForgotPasswordView.swift in Sources */,
 				86CF71922B91608F00B930B6 /* SignInViewController.swift in Sources */,
 				86C34CD92B9F205200C5C448 /* StringUtils.swift in Sources */,
 				86CF719D2B91667200B930B6 /* CustomViewWithXib.swift in Sources */,
+				86B31AC02BAADB8200BFB6A4 /* Coordinator.swift in Sources */,
 				86CF71932B91608F00B930B6 /* SignInInteractor.swift in Sources */,
+				86B31ACD2BAAE79000BFB6A4 /* NavigationRouter.swift in Sources */,
 				86ABEDBB2BA1932A0036D04C /* EmailValidatorService.swift in Sources */,
 				86CF71952B91608F00B930B6 /* SignInModel.swift in Sources */,
 				86CF718F2B91608F00B930B6 /* SignInFactorable.swift in Sources */,
@@ -476,6 +546,7 @@
 				86CF71742B915D3300B930B6 /* MainWindow.swift in Sources */,
 				86CF71802B915E2B00B930B6 /* MainRootPresenter.swift in Sources */,
 				86CF71902B91608F00B930B6 /* SignInPresenter.swift in Sources */,
+				86B31AC92BAAE3B800BFB6A4 /* RootCoordinator.swift in Sources */,
 				86ABEDBF2BA19AE60036D04C /* AlertUtils.swift in Sources */,
 				86CF71762B915D8E00B930B6 /* MainRootViewController.swift in Sources */,
 				86CF71812B915E2B00B930B6 /* MainRootRouter.swift in Sources */,
@@ -663,7 +734,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "news-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -690,7 +762,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "news-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -822,6 +895,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86B2E9572BAC083600439682 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		86B2E9582BAC083600439682 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86B2E9572BAC083600439682 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		86B2E95A2BAC083600439682 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86B2E9572BAC083600439682 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		86CF71442B915AE900B930B6 /* news_app.xcdatamodeld */ = {

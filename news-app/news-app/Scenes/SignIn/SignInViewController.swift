@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol SignInDisplayLogic where Self: UIViewController {
 
@@ -43,8 +44,12 @@ final class SignInViewController: UIViewController {
     }
 
     override func loadView() {
+        super.loadView()
         mainView.delegate = self
-        view = mainView
+        view.addSubview(mainView)
+        mainView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 
     @available(*, unavailable)
@@ -81,7 +86,7 @@ extension SignInViewController: SignInDisplayLogic {
                 mainView.updateConstraintsIfNeeded()
             case .signInSuccess:
                 print("sign in success")
-                //navigage
+                //navigate
             case .signInFail(let error):
                 print(error.localizedDescription)
             case .emailButtonIsHidden(let isHidden):
@@ -109,6 +114,11 @@ extension SignInViewController: SignInViewDelegate {
     
     func onTapEmailButton() {
         interactor.doRequest(.changeScreenType(.signIn))
+    }
+
+    func onTapForgotPasswordButton() {
+        let vc = UIHostingController(rootView: ForgotPasswordView())
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

@@ -17,6 +17,7 @@ protocol SignInViewDelegate where Self: UIViewController {
     func textFieldDidChange(_ textField: UITextField)
     func onTapSignInUpButton()
     func onTapEmailButton()
+    func onTapForgotPasswordButton()
 }
 
 final class SignInView: CustomViewWithXib {
@@ -114,7 +115,8 @@ extension SignInView: CustomizeUIAfterLoadNib {
     }
 
     @objc private func forgotPasswordDidTap() {
-        //todo
+        endEditing(true)
+        delegate?.onTapForgotPasswordButton()
     }
 
     @objc private func onTapSignInUpButton() {

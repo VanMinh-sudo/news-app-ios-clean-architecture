@@ -222,6 +222,21 @@
           }
         }
       }
+    },
+    "Email" : {
+
+    },
+    "emailTextField" : {
+
+    },
+    "Enter your email to be sent a reset password link." : {
+
+    },
+    "News 24" : {
+
+    },
+    "Reset" : {
+
     }
   },
   "version" : "1.0"
