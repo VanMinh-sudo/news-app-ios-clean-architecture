@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import SnapKit
 import SwiftUI
 
 protocol SignInDisplayLogic where Self: UIViewController {

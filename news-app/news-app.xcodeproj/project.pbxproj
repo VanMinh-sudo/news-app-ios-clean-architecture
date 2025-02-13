@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2278525C2D5DECFA00271DEB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2278525B2D5DECFA00271DEB /* SnapKit */; };
 		22804B132BA3519600E8BCF4 /* SignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22804B122BA3519600E8BCF4 /* SignInService.swift */; };
 		229843242B92283100446FC9 /* LocalizationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229843232B92283100446FC9 /* LocalizationCenter.swift */; };
 		229843272B922A7300446FC9 /* ManageAppLanguageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229843262B922A7300446FC9 /* ManageAppLanguageService.swift */; };
@@ -17,8 +18,6 @@
 		86ABEDB92BA18BE70036D04C /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABEDB82BA18BE70036D04C /* CommonError.swift */; };
 		86ABEDBB2BA1932A0036D04C /* EmailValidatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABEDBA2BA1932A0036D04C /* EmailValidatorService.swift */; };
 		86ABEDBF2BA19AE60036D04C /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ABEDBE2BA19AE60036D04C /* AlertUtils.swift */; };
-		86B2E9592BAC083600439682 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 86B2E9582BAC083600439682 /* SnapKit */; };
-		86B2E95B2BAC083600439682 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 86B2E95A2BAC083600439682 /* SnapKit-Dynamic */; };
 		86B31AC02BAADB8200BFB6A4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B31ABF2BAADB8200BFB6A4 /* Coordinator.swift */; };
 		86B31AC22BAADB9200BFB6A4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B31AC12BAADB9200BFB6A4 /* Router.swift */; };
 		86B31AC52BAADC4F00BFB6A4 /* AddChildRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B31AC42BAADC4F00BFB6A4 /* AddChildRouter.swift */; };
@@ -139,8 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86B2E9592BAC083600439682 /* SnapKit in Frameworks */,
-				86B2E95B2BAC083600439682 /* SnapKit-Dynamic in Frameworks */,
+				2278525C2D5DECFA00271DEB /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,8 +387,7 @@
 			);
 			name = "news-app";
 			packageProductDependencies = (
-				86B2E9582BAC083600439682 /* SnapKit */,
-				86B2E95A2BAC083600439682 /* SnapKit-Dynamic */,
+				2278525B2D5DECFA00271DEB /* SnapKit */,
 			);
 			productName = "news-app";
 			productReference = 86CF71382B915AE900B930B6 /* news-app.app */;
@@ -466,7 +463,7 @@
 			);
 			mainGroup = 86CF712F2B915AE900B930B6;
 			packageReferences = (
-				86B2E9572BAC083600439682 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				2278525A2D5DECFA00271DEB /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 86CF71392B915AE900B930B6 /* Products */;
 			projectDirPath = "";
@@ -897,7 +894,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		86B2E9572BAC083600439682 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		2278525A2D5DECFA00271DEB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -908,15 +905,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		86B2E9582BAC083600439682 /* SnapKit */ = {
+		2278525B2D5DECFA00271DEB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 86B2E9572BAC083600439682 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 2278525A2D5DECFA00271DEB /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		86B2E95A2BAC083600439682 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 86B2E9572BAC083600439682 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 
